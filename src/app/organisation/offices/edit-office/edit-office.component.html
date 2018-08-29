@@ -1,0 +1,33 @@
+<div class="container">
+  <mat-card>
+
+    <form [formGroup]="officeForm" (ngSubmit)="submit()">
+      <mat-card-content>
+        <div fxLayout="column">
+          <mat-form-field>
+            <input matInput placeholder="Name of the office" formControlName="name" />
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Parent Office" formControlName="parentId" />
+          </mat-form-field>
+
+          <mat-form-field fxFlex="100%">
+            <mat-label>Opened On</mat-label>
+            <input matInput [min]="minDate" [max]="maxDate" formControlName="openingDate" [matDatepicker]="openedOnDatePicker">
+            <mat-datepicker-toggle matSuffix [for]="openedOnDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #openedOnDatePicker></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="External ID" formControlName="externalId" />
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+      <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
+        <button type="button" mat-raised-button [routerLink]="['../']">Cancel</button>
+        <button mat-raised-button color="primary">Submit</button>
+      </mat-card-actions>
+    </form>
+
+  </mat-card>
+
+</div>
